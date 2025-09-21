@@ -1,0 +1,12 @@
+
+#include <stdio.h>
+int main() {
+    int a, b, lcm;
+    scanf("%d%d", &a, &b);
+    lcm = (a*b);
+    for(int i=1; i<=lcm; i++) {
+        if(i%a==0 && i%b==0) { lcm=i; break; }
+    }
+    printf("LCM = %d", lcm);
+    return 0;
+}
