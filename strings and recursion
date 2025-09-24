@@ -1,0 +1,163 @@
+// 28. String length
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[100];
+    scanf("%s", str);
+    printf("Length = %d", strlen(str));
+    return 0;
+}
+
+// 29. String reverse
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[100];
+    scanf("%s", str);
+    strrev(str);   // some compilers may not support, use loop otherwise
+    printf("Reverse = %s", str);
+    return 0;
+}
+
+// 30. String palindrome
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[100];
+    scanf("%s", str);
+    int n=strlen(str), flag=1;
+    for(int i=0;i<n/2;i++) {
+        if(str[i]!=str[n-i-1]) { flag=0; break; }
+    }
+    if(flag) printf("Palindrome");
+    else printf("Not Palindrome");
+    return 0;
+} 
+
+// 31. Count vowels in string
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[100]; int count=0;
+    scanf("%s", str);
+    for(int i=0; str[i]!='\0'; i++) {
+        if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u'||
+           str[i]=='A'||str[i]=='E'||str[i]=='I'||str[i]=='O'||str[i]=='U')
+            count++;
+    }
+    printf("Vowels = %d", count);
+    return 0;
+}
+
+// 32. Concatenate two strings
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char s1[100], s2[100];
+    scanf("%s %s", s1, s2);
+    strcat(s1, s2);
+    printf("Result = %s", s1);
+    return 0;
+}
+
+// 33. Copy string
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char s1[100], s2[100];
+    scanf("%s", s1);
+    strcpy(s2, s1);
+    printf("Copied = %s", s2);
+    return 0;
+}
+
+// 34. Compare two strings
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char s1[100], s2[100];
+    scanf("%s %s", s1, s2);
+    if(strcmp(s1, s2)==0) printf("Equal");
+    else printf("Not Equal");
+    return 0;
+}
+
+// 35. Factorial using recursion
+#include <stdio.h>
+int fact(int n) {
+    if(n==0) return 1;
+    return n*fact(n-1);
+}
+int main() {
+    int n; scanf("%d",&n);
+    printf("Factorial = %d", fact(n));
+    return 0;
+}
+
+// 36. Fibonacci using recursion
+#include <stdio.h>
+int fib(int n) {
+    if(n==0) return 0;
+    if(n==1) return 1;
+    return fib(n-1)+fib(n-2);
+}
+int main() {
+    int n; scanf("%d",&n);
+    for(int i=0;i<n;i++) printf("%d ", fib(i));
+    return 0;
+}
+
+// 37. GCD using recursion
+#include <stdio.h>
+int gcd(int a, int b) {
+    if(b==0) return a;
+    return gcd(b, a%b);
+}
+int main() {
+    int a,b; scanf("%d%d",&a,&b);
+    printf("GCD = %d", gcd(a,b));
+    return 0;
+}
+
+// 38. Sum of digits using recursion
+#include <stdio.h>
+int sumDigits(int n) {
+    if(n==0) return 0;
+    return n%10 + sumDigits(n/10);
+}
+int main() {
+    int n; scanf("%d",&n);
+    printf("Sum = %d", sumDigits(n));
+    return 0;
+}
+
+// 39. Structure - student details
+#include <stdio.h>
+struct Student {
+    int roll;
+    char name[50];
+    float marks;
+};
+int main() {
+    struct Student s;
+    scanf("%d %s %f",&s.roll, s.name, &s.marks);
+    printf("Roll:%d Name:%s Marks:%.2f", s.roll, s.name, s.marks);
+    return 0;
+}
+
+// 40. Array of structures
+#include <stdio.h>
+struct Student {
+    int roll;
+    char name[50];
+    float marks;
+};
+int main() {
+    int n; scanf("%d",&n);
+    struct Student s[n];
+    for(int i=0;i<n;i++)
+        scanf("%d %s %f",&s[i].roll, s[i].name, &s[i].marks);
+    for(int i=0;i<n;i++)
+        printf("Roll:%d Name:%s Marks:%.2
+    return 0;
+}
