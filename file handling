@@ -1,0 +1,29 @@
+/ 50. Count characters, words, lines in file
+#include <stdio.h>
+#include <ctype.h>
+int main() {
+    FILE *f = fopen("data.txt","r");
+    char ch; int chars=0, words=0, lines=0, inWord=0;
+    while((ch=fgetc(f))!=EOF) {
+        chars++;
+        if(ch=='\n') lines++;
+        if(isspace(ch)) inWord=0;
+        else if(inWord==0) { inWord=1; words++; }
+    }
+    fclose(f);
+    printf("Chars=%d Words=%d Lines=%d", chars, words, lines);
+    return 0;
+}
+
+/ 53. File copy program
+#include <stdio.h>
+int main() {
+    FILE *f1 = fopen("source.txt","r");
+    FILE *f2 = fopen("dest.txt","w");
+    char ch;
+    if(f1==NULL || f2==NULL) { printf("Error"); return 1; }
+    while((ch=fgetc(f1))!=EOF) fputc(ch,f2);
+    fclose(f1); fclose(f2);
+    printf("File copied successfully!");
+    return 0;
+}
